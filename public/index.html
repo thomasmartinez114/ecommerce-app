@@ -13,7 +13,12 @@
     <h2>Welcome to Tommie's Bargain!</h2>
     <input placeholder="seller's name" id='sellerUsername' type='text'>
         <button onclick='getSellerInfo()'>Seller Info</button>
-    
     <p id='sellerInfo'></p>
+    
+    <h3>Post Product to Sell</h3>
+    <input placeholder='Product being sold' id='productName' type='text'>
+    <input placeholder='Product price' id='productPrice' type='number' min='1'>
+    <input placeholder='Product description' id='productDescription' type='text'>
+    <button onclick='handleSubmit()'>Submit</button>
 </body>
 </html>

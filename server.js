@@ -1,18 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 8080;
+
+// Bodyparser
+app.use(bodyParser.json());
 
 // Static HTML Page
 app.use('/', express.static('public'));
 
-app.get('/api', function (req, res) {
-    const sellerUsername = req.query.sellerUsername;
-    const sellerCity = req.query.sellerCity;
-    const sellerState = req.query.sellerState;
-    const productName = req.query.productName;
-    const productId = req.query.productId;
-    const productPrice = req.query.productPrice;
-    const productDescription = req.query.productDescription;
+app.post('/api', function (req, res) {
+    const sellerUsername = req.body.sellerUsername;
+    const sellerCity = req.body.sellerCity;
+    const sellerState = req.body.sellerState;
+    const productName = req.body.productName;
+    const productId = req.body.productId;
+    const productPrice = req.body.productPrice;
+    const productDescription = req.body.productDescription;
 
     const reply = `${sellerUsername} from ${sellerCity}, ${sellerState} is selling ${productName} ${productId} for ${productPrice}. Here is a description of ${productName}: ${productDescription}`
     res.send(reply);
